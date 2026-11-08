@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 
 class AppTextStyle extends StatelessWidget {
 
-   String data;
-   double size;
-   FontWeight weight;
-   Color color;
+   final String data;
+   final double size;
+   final FontWeight weight;
+   final Color color;
 
-   AppTextStyle({super.key, required this.data, required this.size, required this.weight, required this.color});
+   const AppTextStyle({super.key, required this.data, required this.size, required this.weight, required this.color});
 
   @override
   Widget build(BuildContext context) {

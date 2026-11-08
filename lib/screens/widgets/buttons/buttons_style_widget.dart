@@ -3,10 +3,10 @@ import '../../../../theme/app_colors.dart';
 import '../styles/app_text_style.dart';
 
 class TitleButton extends StatelessWidget {
-  String title;
-  Function () onTap;
+  final String title;
+  final Function () onTap;
 
-  TitleButton({super.key, required this.title, required this.onTap});
+  const TitleButton({super.key, required this.title, required this.onTap});
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -33,10 +33,10 @@ class TitleButton extends StatelessWidget {
 
 class ActionButton extends StatelessWidget {
 
-  Icon icon;
-  double size;
-  Function () onTap;
-  ActionButton({super.key, required this.icon, required this.size, required this.onTap});
+  final Icon icon;
+  final double size;
+  final Function () onTap;
+  const ActionButton({super.key, required this.icon, required this.size, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
