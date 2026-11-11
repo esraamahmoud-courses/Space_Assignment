@@ -14,87 +14,124 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int index = 0;
+
   @override
   Widget build(BuildContext context) {
-
     // TODO: "create Linear Gradient"
 
     return SafeArea(
+      child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Stack(
-            children: [
-              Stack(
-                children: [
-                  Image.asset("assets/images/exploreBG.png"),
-                ],
-              ),
+          children: [
+            Stack(
+              children: [
+                Stack(children: [Image.asset("assets/images/exploreBG.png")]),
 
-              Center(
-                child:  AppTextStyle(
+                Center(
+                  child: AppTextStyle(
                     data: "Explore",
                     size: 24,
                     weight: .w700,
-                    color: AppColors.white),
-              ),
+                    color: AppColors.white,
+                  ),
+                ),
 
-              Positioned(
-                bottom: 0,
+                Positioned(
+                  bottom: 0,
                   left: 16,
                   right: 16,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       AppTextStyle(
-                          data: "Which planet ",
-                          size: 24,
-                          weight: .w700,
-                          color: AppColors.white
+                        data: "Which planet ",
+                        size: 24,
+                        weight: .w700,
+                        color: AppColors.white,
                       ),
                       AppTextStyle(
-                          data: "would you like to explore?",
-                          size: 24,
-                          weight: .w700,
-                          color: AppColors.white
+                        data: "would you like to explore?",
+                        size: 24,
+                        weight: .w700,
+                        color: AppColors.white,
                       ),
                     ],
-                  )
-              ),
-            ],
-          ),
+                  ),
+                ),
+              ],
+            ),
 
-          Padding(
+            SizedBox(height: 16),
+
+            Padding(
               padding: EdgeInsets.all(16),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                spacing: 12,
+                spacing: 16,
                 children: [
-                  Image.asset(spaceDetailsList[0].image),
+                  SizedBox(
+                    width: 342,
+                    height: 339,
+                    child: Image.asset(
+                      spaceDetailsList[index].image,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      ActionButton(icon: Icon(Icons.arrow_back), size: 24, onTap: (){}),
+                      ActionButton(
+                        icon: Icon(Icons.arrow_back),
+                        size: 24,
+                        onTap: () {
+                          if (index > 0) {
+                            setState(() {
+                              index--;
+                            });
+                          }
+                        },
+                      ),
 
-                      AppTextStyle(data: spaceDetailsList[0].name, size: 24, weight: .w700, color: AppColors.white),
+                      AppTextStyle(
+                        data: spaceDetailsList[index].name,
+                        size: 24,
+                        weight: .w700,
+                        color: AppColors.white,
+                      ),
 
-                      ActionButton(icon: Icon(Icons.arrow_forward), size: 24, onTap: (){}),
+                      ActionButton(
+                        icon: Icon(Icons.arrow_forward),
+                        size: 24,
+                        onTap: () {
+                          if (index < spaceDetailsList.length - 1) {
+                            setState(() {
+                              index++;
+                            });
+                          }
+                        },
+                      ),
                     ],
                   ),
-                 TitleButton(
-                        title: "Explore ${spaceDetailsList[0].name}", onTap: (){
-                      Navigator.pushNamed(context, AppRoutes.login);
-                    }
-                    ),
-
-                ]
-              )
-
-          )
-        ]
-
-    )
+                  SizedBox(height: 16),
+                  TitleButton(
+                    title: "Explore ${spaceDetailsList[index].name}",
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context,
+                        AppRoutes.details,
+                        arguments: spaceDetailsList[index],
+                      );
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

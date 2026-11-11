@@ -31,6 +31,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  #  model_viewer_plus: ^1.9.1
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
@@ -64,6 +66,8 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/models/
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -77,9 +81,9 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-     - family: inter
-       fonts:
-         - asset: assets/fonts/Inter_18pt-Black.ttf
+    - family: SpaceGrotesk
+      fonts:
+        - asset: assets/fonts/SpaceGrotesk-Bold.ttf
 
   #   - family: Trajan Pro
   #     fonts:
