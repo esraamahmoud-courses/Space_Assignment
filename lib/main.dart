@@ -15,22 +15,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        fontFamily: "SpaceGrotesk",
-      ),
+      theme: ThemeData(fontFamily: "SpaceGrotesk"),
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: AppColors.red,
-        ),
+      home: Scaffold(backgroundColor: AppColors.black),
 
-        routes: {
-          AppRoutes.login: (context) => LoginScreen(),
-          AppRoutes.home: (context) => HomeScreen(),
-          AppRoutes.details: (context) => PlanetDetails(),
-        },
+      routes: {
+        AppRoutes.login: (context) => LoginScreen(),
+        AppRoutes.home: (context) => HomeScreen(),
+        AppRoutes.details: (context) => PlanetDetails(),
+      },
       initialRoute: AppRoutes.login,
-
     );
   }
 }
-
