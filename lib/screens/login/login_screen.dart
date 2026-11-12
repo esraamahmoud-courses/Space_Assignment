@@ -11,29 +11,32 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Image.asset("assets/images/loginBG.png",
-        ),
-        
+        Image.asset("assets/images/loginBG.png"),
+
         Center(
-            child: Padding(
+          child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 16),
             child: AppTextStyle(
-                data: "Explore The Universe",
-                size: 48,
-                weight: .w900,
-                color: AppColors.white),
-          )
+              data: "Explore The Universe",
+              size: 48,
+              fontFamily: "Inter",
+              weight: .w900,
+              color: AppColors.white,
+            ),
           ),
+        ),
 
-        Positioned(bottom: 16, left: 16, right: 16 ,
-            child: TitleButton(
-                title: "Explore",
-                onTap: (){
-                  Navigator.pushReplacementNamed(context, AppRoutes.home);
-                }
-                )
-        )
-
+        Positioned(
+          bottom: 16,
+          left: 16,
+          right: 16,
+          child: TitleButton(
+            title: "Explore",
+            onTap: () {
+              Navigator.pushReplacementNamed(context, AppRoutes.home);
+            },
+          ),
+        ),
       ],
     );
   }

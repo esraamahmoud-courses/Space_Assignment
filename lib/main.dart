@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:space_assignment/core/routes/app_routes.dart';
 import 'package:space_assignment/screens/home/home_screen.dart';
 import 'package:space_assignment/screens/login/login_screen.dart';
+import 'package:space_assignment/screens/planet_details/planet_details.dart';
 import 'package:space_assignment/theme/app_colors.dart';
 
 void main() {
@@ -14,21 +15,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        fontFamily: "inter",
-      ),
+      theme: ThemeData(fontFamily: "SpaceGrotesk"),
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: AppColors.red,
-        ),
+      home: Scaffold(backgroundColor: AppColors.black),
 
-        routes: {
+      routes: {
         AppRoutes.login: (context) => LoginScreen(),
         AppRoutes.home: (context) => HomeScreen(),
-    },
+        AppRoutes.details: (context) => PlanetDetails(),
+      },
       initialRoute: AppRoutes.login,
-
     );
   }
 }
-
