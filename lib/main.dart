@@ -19,12 +19,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(backgroundColor: AppColors.black),
 
+      initialRoute: AppRoutes.login,
+
       routes: {
         AppRoutes.login: (context) => LoginScreen(),
         AppRoutes.home: (context) => HomeScreen(),
         AppRoutes.details: (context) => PlanetDetails(),
       },
-      initialRoute: AppRoutes.login,
     );
   }
 }
